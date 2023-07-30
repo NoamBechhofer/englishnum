@@ -1,3 +1,9 @@
+// string_utils.cpp - utility functions for strings
+// Copyright (C) 2023 Noam Bechhofer
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <https://www.gnu.org/licenses/>.include <string>
+#include "string_utils.hpp"
 #include <string>
 
 using namespace std;

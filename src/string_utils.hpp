@@ -1,3 +1,8 @@
+// string_utils.hpp - header for string_utils.cpp
+// Copyright (C) 2023 Noam Bechhofer
+//
+// You should have received a copy of the GNU General Public License along with
+// this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef STRING_UTILS_H
 #define STRING_UTILS_H
 
