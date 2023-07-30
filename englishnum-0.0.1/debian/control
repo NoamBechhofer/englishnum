@@ -1,0 +1,17 @@
+Source: englishnum
+Section: utils
+Priority: optional
+Maintainer: Noam Bechhofer <noam.bechhofer@gmail.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.4.1
+Homepage: https://github.com/NoamBechhofer/englishnum
+#Vcs-Browser: https://salsa.debian.org/debian/englishnum
+#Vcs-Git: https://salsa.debian.org/debian/englishnum.git
+
+Package: englishnum
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: converts integers to english
+ englishnum allows you to convert any whole number between INT32_MIN and 
+ INT32_MAX to its english representation. You can also convert to ordinal (e.g.
+ "first" instead of "one").
