@@ -16,4 +16,15 @@ using namespace std;
 bool
 ends_with(const string& a, const string& b);
 
+/**
+ * @brief check whether a string starts with a specified substring
+ *
+ * @param a the string to check
+ * @param b the substring
+ *
+ * @return true if a starts with b
+ */
+bool
+starts_with(const string& a, const string& b);
+
 #endif // STRING_UTILS_H

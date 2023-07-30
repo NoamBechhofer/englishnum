@@ -1,6 +1,6 @@
 # Variables
 CXX = g++
-CXXFLAGS = -std=c++20 -g -Wall -Wextra
+CXXFLAGS = -std=c++14
 
 # Target application
 TARGET = englishnum

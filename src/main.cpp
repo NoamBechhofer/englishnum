@@ -28,17 +28,19 @@ display_version()
 void
 display_help()
 {
-    std::cout << "englishnum\n"
-              << "Usage: " << program_invocation_short_name
-              << " [OPTION]... [number]...\n"
-              << "Convert numbers to their english representation.\n"
-              << "\n"
-              << "  -h, --help     display this help and exit\n"
-              << "  -v, --version  display version information and exit\n"
-              << "  -o, --ordinal  display ordinal numbers (e.g., \"first\" instead of \"one\")\n"
-              << "\n"
-              << "Report bugs to Noam Bechhofer, noam.bechhofer+englishnum@gmail.com."
-              << endl;
+    std::cout
+        << "englishnum\n"
+        << "Usage: " << program_invocation_short_name
+        << " [OPTION]... [number]...\n"
+        << "Convert numbers to their english representation.\n"
+        << "\n"
+        << "  -h, --help     display this help and exit\n"
+        << "  -v, --version  display version information and exit\n"
+        << "  -o, --ordinal  display ordinal numbers (e.g., \"first\" instead "
+           "of \"one\")\n"
+        << "\n"
+        << "Report bugs to Noam Bechhofer, noam.bechhofer+englishnum@gmail.com."
+        << endl;
 }
 
 int
@@ -49,7 +51,6 @@ main(int argc, char** argv)
         return 1;
     }
 
-    // e.g. both "-h" and "--help" return display_help()
     multimap<string, void_funct> argmap;
     argmap.insert({ "-h", []() {
                        display_help();
@@ -81,11 +82,18 @@ main(int argc, char** argv)
         try {
             num = stoi(param);
         } catch (invalid_argument& e) {
-            if (param.starts_with("-")) {
-                if (!argmap.contains(param)) {
+            if (starts_with(param, "-")) {
+                auto count = argmap.count(param);
+                if (count == 0) {
                     cerr << program_invocation_short_name
                          << ": invalid option: " << param << endl;
                     return 1;
+                } else if (count > 1) {
+                    /*
+                     * We shouldn't be here. Each option should only point to 
+                     * one function.
+                     */
+                    throw logic_error("duplicate option");
                 } else {
                     argmap.equal_range(param).first->second();
                     continue;
@@ -106,12 +114,11 @@ main(int argc, char** argv)
     }
 
     if (ordinal) {
-        transform(output.begin(), output.end(), output.begin(), [](string s) {
-            return append_suffix(s);
-        });
+        for (string& str : output) {
+            str = append_suffix(str);
+        }
     }
 
-    // now write each string to stdout on its own line
     copy(output.begin(), output.end(), ostream_iterator<string>(cout, "\n"));
 
     std::cout << flush;

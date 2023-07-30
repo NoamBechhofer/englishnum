@@ -2,15 +2,7 @@
 
 using namespace std;
 
-/**
- * @brief check whether a string ends with a specified substring
- *
- * @param a the string to check
- * @param b the substring
- *
- * @return true if a ends with b
- */
-inline bool
+bool
 ends_with(const string& a, const string& b)
 {
 #if __cplusplus >= 202002L
@@ -18,6 +10,20 @@ ends_with(const string& a, const string& b)
 #else
     if (a.length() >= b.length()) {
         return 0 == a.compare(a.length() - b.length(), b.length(), b);
+    } else {
+        return false;
+    }
+#endif
+}
+
+bool
+starts_with(const string& a, const string& b)
+{
+#if __cplusplus >= 202002L
+    return a.starts_with(b);
+#else
+    if (a.length() >= b.length()) {
+        return 0 == a.compare(0, b.length(), b);
     } else {
         return false;
     }
