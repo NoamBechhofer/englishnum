@@ -1,3 +1,9 @@
+// englishnum.cpp - utility to convert numbers to english
+// Copyright (C) 2023 Noam Bechhofer
+//
+// You should have received a copy of the GNU General Public License along with 
+// this program.  If not, see <https://www.gnu.org/licenses/>.
+
 #include "englishnum.hpp"
 
 #include <algorithm>

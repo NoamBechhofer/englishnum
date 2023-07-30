@@ -1,3 +1,9 @@
+// englishnum.hpp - header file for englishnum.cpp
+// Copyright (C) 2023 Noam Bechhofer
+//
+// you should have received a copy of the GNU General Public License along with
+// this program.  If not, see <https://www.gnu.org/licenses/>.
+
 #ifndef ENGLISHNUM_HPP
 #define ENGLISHNUM_HPP
 
